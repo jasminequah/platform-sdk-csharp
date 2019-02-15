@@ -23,6 +23,7 @@ mkdir -p $ARTEFACT_DIR
 rm -rf $ARTEFACT_DIR/*
 
 echo "--- Preparing artefacts for release"
+msbuild $REPO_ROOT/apis/apis.csproj /t:Restore
 msbuild $REPO_ROOT/apis/apis.csproj /p:Configuration=Release /p:Version=${SDK_VERSION} /t:Clean,Build -verbosity:minimal
 pushd ${OUTPUT_DIR}/net451
 zip -r ${ARTEFACT_DIR}/${SDK_VERSION}-net451.zip *
