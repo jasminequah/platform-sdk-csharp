@@ -41,7 +41,14 @@
             <InputAssemblies Include="Google.Api.CommonProtos.dll" />
         </ItemGroup>
         
-        <ILRepack Parallel="true" OutputType="$(OutputType)" MainAssembly="$(AssemblyName).dll" OutputAssembly="$(AssemblyName).dll" InputAssemblies="@(InputAssemblies)" Internalize="false" WorkingDirectory="$(WorkingDirectory)" />
+        <ItemGroup>
+            <InternalizeExcludeAssemblies Include="^Google.Api.Gax" />
+            <InternalizeExcludeAssemblies Include="^Google.Protobuf.WellKnownTypes" />
+            <InternalizeExcludeAssemblies Include="^Grpc.Core" />
+            <InternalizeExcludeAssemblies Include="^Google.LongRunning" />
+        </ItemGroup>
+        
+        <ILRepack Parallel="true" OutputType="$(OutputType)" MainAssembly="$(AssemblyName).dll" OutputAssembly="$(AssemblyName).dll" InputAssemblies="@(InputAssemblies)"  InternalizeExcludeAssemblies="@(InternalizeExcludeAssemblies)" Internalize="true" WorkingDirectory="$(WorkingDirectory)" />
 
         <ItemGroup>
             <AssembliesToDelete Include="$(WorkingDirectory)/%(InputAssemblies.Identity)" />
