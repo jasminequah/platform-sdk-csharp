@@ -1,5 +1,6 @@
 bazel-*
 **/obj/
+**/bin/
 
 *~
 .idea/

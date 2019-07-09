@@ -45,17 +45,6 @@ filegroup(
         "@improbable_platform//proto/improbable/spatialos/serviceaccount:protos",
         "@improbable_platform//proto/improbable/spatialos/playerauth/v1alpha1:protos",
         "@improbable_platform//proto/improbable/spatialos/playerauth/v2alpha1:protos",
+        "@improbable_platform//proto/improbable/spatialos/remoteinteraction/v1alpha1:protos",
     ],
 )
-
-# load("@org_pubref_rules_protobuf//protobuf:rules.bzl", "proto_language")
-# proto_language(
-#     name = "csharp",
-#     grpc_file_extensions = ["Grpc.cs"],
-#     grpc_plugin = "@com_google_grpc//:grpc_csharp_plugin",
-#     grpc_plugin_name = "grpc_csharp",
-#     output_file_style = "pascal",
-#     output_to_libdir = True,
-#     pb_file_extensions = [".cs"],
-#     supports_grpc = True,
-# )
